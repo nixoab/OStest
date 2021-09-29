@@ -10,13 +10,13 @@ int main() {
     int p[2];
     pipe(p);
     int pid1, pid2;
-    while (pid1 = fork() == -1); //创建子进程1
+    while ((pid1 = fork()) == -1); //创建子进程1
     if (pid1 == 0) {
         close(p[0]); //关闭读通道
         write(p[1], MSG_1, MSG); //写入MSG_1
     }
     else {
-        while (pid2 = fork() == -1); //创建子进程2
+        while ((pid2 = fork()) == -1); //创建子进程2
         if (pid2 == 0) {
             close(p[0]); //关闭读通道
             write(p[1], MSG_2, MSG); //写入MSG_2
