@@ -2,7 +2,7 @@
 #include <signal.h>
 #include <stdlib.h>
 
-static void	sig_usr(int);	/* one handler for both signals */
+static void	sig_usr(int); //one handler for both signals
 int pid;
 
 int main(void) {
@@ -19,8 +19,6 @@ int main(void) {
         pause();
 }
 
-static void
-sig_usr(int signo)		/* argument is signal number */
-{
+static void sig_usr(int signo) { //argument is signal number
     printf("received signal %d\npid = %d\n", signo, pid);
 }
